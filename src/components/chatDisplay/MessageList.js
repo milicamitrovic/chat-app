@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import MessageItem from './MessageItem';
 
-const MessageList = ({ receivedMessages }) => {
+const MessageList = ({ receivedMessages, author }) => {
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(scrollToBottom, [receivedMessages]);
+
   return (
     <div>
       <ul>
-        {receivedMessages.receivedMessages.map((receivedMessageItem) => (
-          <li>
-            <div>{receivedMessageItem.author}</div>
-            <div>{receivedMessageItem.message}</div>
-            <div>{receivedMessageItem.timestamp}</div>
-            <div>{receivedMessageItem.token}</div>
-          </li>
-        ))}
+        {receivedMessages &&
+          receivedMessages.map((receivedMessageItem) => (
+            <MessageItem
+              key={receivedMessageItem._id}
+              receivedMessageItem={receivedMessageItem}
+              author={author}
+            />
+          ))}
+        <div ref={messagesEndRef} />
       </ul>
     </div>
   );

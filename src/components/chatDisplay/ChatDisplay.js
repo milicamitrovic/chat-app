@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
+
 import { getMessages } from '../../services/apiServices';
 import SendMessage from '../sendMessage/SendMessage';
 import MessageList from './MessageList';
 
 class ChatDisplay extends Component {
-  state = { receivedMessages: [] };
+  state = { receivedMessages: [], author: 'm' };
 
   componentDidMount() {
-    this.getMessages();
+    this.getAllMessages();
   }
 
-  getMessages = () => {
+  getAllMessages = () => {
     getMessages().then((receivedMessages) =>
       this.setState({ receivedMessages })
     );
   };
 
+  reloadChat = () => {
+    this.getAllMessages();
+  };
+
   render() {
-    const receivedMessages = this.state;
+    const { receivedMessages, author } = this.state;
 
     return (
       <div>
-        <MessageList receivedMessages={receivedMessages} />
-        <SendMessage />
+        <MessageList receivedMessages={receivedMessages} author={author} />
+        <SendMessage reloadChat={this.reloadChat} />
       </div>
     );
   }
