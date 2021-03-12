@@ -1,8 +1,10 @@
 import axios from 'axios';
-const TOKEN = 'FGvviHC9KSai';
-const BASE_URL_ROUTE =
-  'https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0';
-const URL_ROUTE = `${BASE_URL_ROUTE}/?token=${TOKEN}`;
+import {
+  BASE_URL_ROUTE,
+  TOKEN,
+  URL_ROUTE,
+  // URL_ROUTE_SINCE,
+} from '../constants/constants';
 
 export const getMessages = () => {
   return axios
@@ -20,3 +22,10 @@ export const postMessage = (content, callback) => {
     .then(() => callback())
     .catch((error) => console.error(error));
 };
+
+// export const getMessagesAfterTimestamp = () => {
+//   return axios
+//     .get(URL_ROUTE_SINCE)
+//     .then((response) => response.data)
+//     .catch((error) => console.error(error));
+// };

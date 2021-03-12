@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import { AUTHOR_NAME } from '../../constants/constants';
+
 import { getMessages } from '../../services/apiServices';
 import SendMessage from '../sendMessage/SendMessage';
 import MessageList from './MessageList';
 
 class ChatDisplay extends Component {
-  state = { receivedMessages: [], author: 'm' };
+  state = { receivedMessages: [], author: AUTHOR_NAME };
 
   componentDidMount() {
     this.getAllMessages();

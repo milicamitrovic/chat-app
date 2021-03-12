@@ -9,6 +9,8 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow-y: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat_display {

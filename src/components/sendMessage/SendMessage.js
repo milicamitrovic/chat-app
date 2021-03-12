@@ -25,14 +25,16 @@ class SendMessage extends Component {
   render() {
     const { input } = this.state;
     return (
-      <form className="send_message" onSubmit={this.handleSubmit}>
-        <input
-          placeholder="Message"
-          value={input}
-          onChange={this.handleInputChange}
-        ></input>
-        <button>Send</button>
-      </form>
+      <div className="send_message">
+        <form className="send_message--form" onSubmit={this.handleSubmit}>
+          <input
+            placeholder="Message"
+            value={input}
+            onChange={this.handleInputChange}
+          ></input>
+          <button>Send</button>
+        </form>
+      </div>
     );
   }
 }

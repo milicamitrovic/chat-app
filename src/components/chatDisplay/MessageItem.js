@@ -1,9 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 
+import { TIMESTAMP_FORMAT } from '../../constants/constants';
+
 const MessageItem = ({ receivedMessageItem, author }) => {
   const timestampToDate = moment(receivedMessageItem.timestamp).format(
-    'D MMM YYYY H:mm'
+    TIMESTAMP_FORMAT
   );
   const isSent = author === receivedMessageItem.author ? 'sent' : 'received';
   return (
