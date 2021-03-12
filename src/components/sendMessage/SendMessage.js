@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { postMessage } from '../../services/apiServices';
 
 class SendMessage extends Component {
-  state = { input: '', author: 'm' };
+  state = { input: '' };
 
   handleInputChange = (e) => {
     this.setState({ input: e.target.value });
@@ -11,7 +11,8 @@ class SendMessage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { input, author } = this.state;
+    const { input } = this.state;
+    const { author } = this.props;
     const content = { message: input, author: author };
     this.submitMessage(content);
     this.setState({ input: '' });
@@ -24,9 +25,9 @@ class SendMessage extends Component {
   render() {
     const { input } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="send_message" onSubmit={this.handleSubmit}>
         <input
-          placeholder="Type here"
+          placeholder="Message"
           value={input}
           onChange={this.handleInputChange}
         ></input>

@@ -10,19 +10,17 @@ const MessageList = ({ receivedMessages, author }) => {
   useEffect(scrollToBottom, [receivedMessages]);
 
   return (
-    <div>
-      <ul>
-        {receivedMessages &&
-          receivedMessages.map((receivedMessageItem) => (
-            <MessageItem
-              key={receivedMessageItem._id}
-              receivedMessageItem={receivedMessageItem}
-              author={author}
-            />
-          ))}
-        <div ref={messagesEndRef} />
-      </ul>
-    </div>
+    <ul>
+      {receivedMessages &&
+        receivedMessages.map((receivedMessageItem) => (
+          <MessageItem
+            key={receivedMessageItem._id}
+            receivedMessageItem={receivedMessageItem}
+            author={author}
+          />
+        ))}
+      <div ref={messagesEndRef} />
+    </ul>
   );
 };
 export default MessageList;

@@ -1,0 +1,9 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10%;
+  margin: 8px 0px;
+  @media (max-width: 575px) {
+    padding: 0px 24px;
+  }
+}

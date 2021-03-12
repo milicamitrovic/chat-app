@@ -25,9 +25,9 @@ class ChatDisplay extends Component {
     const { receivedMessages, author } = this.state;
 
     return (
-      <div>
+      <div className="chat_display">
         <MessageList receivedMessages={receivedMessages} author={author} />
-        <SendMessage reloadChat={this.reloadChat} />
+        <SendMessage reloadChat={this.reloadChat} author={author} />
       </div>
     );
   }
