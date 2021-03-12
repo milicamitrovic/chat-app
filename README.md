@@ -1,3 +1,7 @@
+Chat App built with React
+
+This is a simple chat interface, which is able to send and display messages from all senders.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
